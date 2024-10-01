@@ -11,22 +11,6 @@ export default function Dashboard() {
       navigate(`/product/${productId}`);
     }
   };
-  // Search Enter Event listener
-  useEffect(() => {
-    function handleEnter(event) {
-      if (event.key === "Enter") {
-        handleSearch();
-      }
-    }
-    const searchInput = document.getElementById("search-input");
-
-    if (searchInput) {
-      searchInput.addEventListener("keydown", handleEnter);
-    }
-    return () => {
-      searchInput.removeEventListener("keydown", handleEnter);
-    };
-  });
   //   Fetch Data from json
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -50,7 +34,7 @@ export default function Dashboard() {
           <div className="new-products">
             <div className="flex items-center justify-center p-8">
               <h2 className="about-us-heading avenir-heavy relative mb-8 w-max animate-[fadeLeft_0.5s_ease_forwards] px-8 text-[48px] opacity-0 before:absolute before:-bottom-1 before:left-0 before:block before:h-[5px] before:w-full before:rounded-full before:bg-[#7A83C6] before:content-['']">
-                Products
+                Products 
               </h2>
             </div>
 

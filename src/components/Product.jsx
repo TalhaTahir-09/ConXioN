@@ -30,23 +30,6 @@ export default function Product() {
 
     fetchProductDetails();
   }, [id]);
-  console.log(product);
-  // Search Enter Event listener
-  useEffect(() => {
-    function handleEnter(event) {
-      if (event.key === "Enter") {
-        handleSearch();
-      }
-    }
-    const searchInput = document.getElementById("search-input");
-
-    if (searchInput) {
-      searchInput.addEventListener("keydown", handleEnter);
-    }
-    return () => {
-      searchInput.removeEventListener("keydown", handleEnter);
-    };
-  });
   // Animation Triggerer
   useEffect(() => {
     if (product) {

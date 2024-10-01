@@ -1,8 +1,18 @@
 import React from "react";
 import Button from "./Button.jsx";
 import { useNavigate } from "react-router-dom";
-export default function Navbar({ productId, setProductId, handleSearch }) {
+export default function Navbar({
+  productId,
+  setProductId,
+  handleSearch,
+  onKeyDown,
+}) {
   const navigate = useNavigate();
+  const handleEnter = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
   return (
     <nav className="w-full">
       <div className="nav-container flex items-center justify-between p-8">
@@ -21,6 +31,7 @@ export default function Navbar({ productId, setProductId, handleSearch }) {
             id="search-input"
             placeholder="Search..."
             type="search"
+            onKeyDown={handleEnter}
             value={productId}
             onChange={(e) => setProductId(e.target.value)}
             className="avenir-light mr-3 w-[200px] rounded-md border border-solid border-resposeGrey p-[9px] pl-9 text-paragraphGrey outline-none focus:border-inputActive active:border-inputActive"
